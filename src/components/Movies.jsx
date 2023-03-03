@@ -34,9 +34,13 @@ function Movies() {
     useEffect(() => {
         setTimeout(() => {
             MovieCall();
-            setLoading(false);
         }, 100);
     }, [input]);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
     const MoviesTitle = (movie) => {
         setMovieTitle(movie.title);
         setTrailer(!trailer);
@@ -46,8 +50,11 @@ function Movies() {
     ) : (
         <Fragment>
             <div
-                id="mt-71"
-                className={toggle ? "mainBgColor" : "secondaryBgColor"}
+                className={
+                    toggle
+                        ? "mainBgColor pd-71 pd-20"
+                        : "secondaryBgColor pd-71 pd-20"
+                }
             >
                 <div className="movies-container">
                     {moviesData.map((movie) => {

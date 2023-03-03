@@ -15,6 +15,7 @@ function TvShows() {
     const input = inputValue;
     const [showData, setShowData] = useState([]);
     const [trailer, setTrailer] = useState(true);
+    const [isCheck, setCheck] = useState(true);
     const [loading, setLoading] = useState(true); // Có thể sẽ xóa
     const [title, setTitle] = useState("");
     const Shown = input ? "search" : "discover"; // Thay đổi địa chỉ api để khi nhập vào value giá trị input thay đổi thì sẽ chương trình render lai jtheo tên yêu cầu
@@ -35,9 +36,13 @@ function TvShows() {
     useEffect(() => {
         setTimeout(() => {
             TvShows();
-            setLoading(false); // Có thể sẽ xóa
         }, 100);
     }, [input]);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
     console.log(showData);
     const TvShowTitle = (shows) => {
         setTitle(shows.name);
@@ -48,12 +53,21 @@ function TvShows() {
         <Loading />
     ) : (
         <Fragment>
-            <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
+            <div
+                className={
+                    toggle
+                        ? "mainBgColor pd-71 pd-20"
+                        : "secondaryBgColor pd-71 pd-20"
+                }
+            >
                 <div className="movies-container">
                     {showData.map((shows) => {
                         return (
                             <Fragment key={shows.id}>
-                                <div id={trailer ? "container" : "NoContainer"}>
+                                <div
+                                    id={trailer ? "container" : "NoContainer"}
+                                    className={isCheck ? "card" : ""}
+                                >
                                     <AiFillPlayCircle
                                         color="fff"
                                         fontSize={40}

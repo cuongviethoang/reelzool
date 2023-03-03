@@ -14,6 +14,7 @@ function Trends() {
     const TrendsShown = "/trending/all/week";
     const [trailer, setTrailer] = useState(true);
     const [loading, setLoading] = useState(true);
+    const [isCheck, setCheck] = useState(true);
     const [trendArray, setTrendArray] = useState([]);
     const [trendTitle, setTrendTitle] = useState("");
     const Images = "https://image.tmdb.org/t/p/w500";
@@ -31,9 +32,13 @@ function Trends() {
     useEffect(() => {
         setTimeout(() => {
             Trends();
-            setLoading(false);
-        });
+        }, 100);
     }, [input]);
+    useEffect(() => {
+        setTimeout(() => {
+            setLoading(false);
+        }, 500);
+    }, []);
     const TrendTitle = (trend) => {
         setTrendTitle(trend.title);
         setTrailer(!trailer);
@@ -43,12 +48,21 @@ function Trends() {
         <Loading />
     ) : (
         <Fragment>
-            <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
+            <div
+                className={
+                    toggle
+                        ? "mainBgColor pd-71 pd-20"
+                        : "secondaryBgColor pd-71 pd-20"
+                }
+            >
                 <div className="movies-container">
                     {trendArray.map((trend) => {
                         return (
                             <Fragment key={trend.id}>
-                                <div id={trailer ? "container" : "NoContainer"}>
+                                <div
+                                    id={trailer ? "container" : "NoContainer"}
+                                    className={isCheck ? "card" : ""}
+                                >
                                     <AiFillPlayCircle
                                         color="#fff"
                                         fontSize={40}

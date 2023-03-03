@@ -2,8 +2,12 @@ body {
     overflow-x: hidden;
 }
 
-#mt-71 {
-    margin-top: 71px;
+.pd-71 {
+    padding-top: 71px;
+}
+
+.pd-20 {
+    padding-bottom: 50px;
 }
 .movies-container {
     display: flex;
@@ -15,7 +19,7 @@ body {
     width: 100%;
 }
 .secondaryBgColor {
-    background-color: #fff;
+    background-image: linear-gradient(to top, #fff1eb 0%, #ace0f9 100%);
     width: 100%;
 }
 .movies-container img {
