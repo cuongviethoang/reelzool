@@ -1,7 +1,7 @@
 .player {
     position: absolute;
     margin-top: 120px;
-    z-index: 999;
+    z-index: 998;
 }
 .Container {
     display: none;

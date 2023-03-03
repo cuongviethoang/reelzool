@@ -5,6 +5,8 @@ import { Container } from "./NavBar";
 import "../Styles/Videos.css";
 import NoImg from "./NoImage.jpg";
 import TrailerMovies from "../Trailers/TrailerMovies";
+import Loading from "./Loading";
+import Footer from "./Footer";
 
 function Movies() {
     const { toggle, inputValue } = useContext(Container);
@@ -12,6 +14,7 @@ function Movies() {
     const [moviesData, setMoviesData] = useState([]);
     const [trailer, setTrailer] = useState(true);
     const [isCheck, setCheck] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [movieTitle, setMovieTitle] = useState("");
     const Shown = input ? "search" : "discover"; // Thay đổi địa chỉ api để khi nhập vào value giá trị input thay đổi thì sẽ chương trình render lai jtheo tên yêu cầu
     const Api = `https://api.themoviedb.org/3/${Shown}/movie`;
@@ -31,15 +34,21 @@ function Movies() {
     useEffect(() => {
         setTimeout(() => {
             MovieCall();
+            setLoading(false);
         }, 100);
     }, [input]);
     const MoviesTitle = (movie) => {
         setMovieTitle(movie.title);
         setTrailer(!trailer);
     };
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <Fragment>
-            <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
+            <div
+                id="mt-71"
+                className={toggle ? "mainBgColor" : "secondaryBgColor"}
+            >
                 <div className="movies-container">
                     {moviesData.map((movie) => {
                         return (
@@ -99,6 +108,7 @@ function Movies() {
                     />
                 </div>
             </div>
+            <Footer />
         </Fragment>
     );
 }

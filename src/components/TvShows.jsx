@@ -8,11 +8,14 @@ import "../Styles/Videos.css";
 import NoImg from "./NoImage.jpg";
 import axios from "axios";
 import TrailerTvShows from "../Trailers/TrailerTvShows";
+import Loading from "./Loading";
+import Footer from "./Footer";
 function TvShows() {
     const { toggle, inputValue } = useContext(Container);
     const input = inputValue;
     const [showData, setShowData] = useState([]);
     const [trailer, setTrailer] = useState(true);
+    const [loading, setLoading] = useState(true); // Có thể sẽ xóa
     const [title, setTitle] = useState("");
     const Shown = input ? "search" : "discover"; // Thay đổi địa chỉ api để khi nhập vào value giá trị input thay đổi thì sẽ chương trình render lai jtheo tên yêu cầu
 
@@ -32,6 +35,7 @@ function TvShows() {
     useEffect(() => {
         setTimeout(() => {
             TvShows();
+            setLoading(false); // Có thể sẽ xóa
         }, 100);
     }, [input]);
     console.log(showData);
@@ -39,7 +43,10 @@ function TvShows() {
         setTitle(shows.name);
         setTrailer(!trailer);
     };
-    return (
+
+    return loading ? (
+        <Loading />
+    ) : (
         <Fragment>
             <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
                 <div className="movies-container">
@@ -95,6 +102,7 @@ function TvShows() {
                     />
                 </div>
             </div>
+            <Footer />
         </Fragment>
     );
 }

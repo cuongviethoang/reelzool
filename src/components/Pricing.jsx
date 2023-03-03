@@ -47,7 +47,7 @@ function Pricing() {
                             <FcCheckmark fontSize={25} id="checkmark" />
                             First month completely free
                         </span>
-                        <div class="setBtn">
+                        <div className="setBtn">
                             <button id="button1">Buy Now</button>
                         </div>
                         <div id="darktheme">
@@ -102,7 +102,7 @@ function Pricing() {
                             <FcCheckmark fontSize={25} id="checkmark" />
                             HD available
                         </span>
-                        <div class="setBtn">
+                        <div className="setBtn">
                             <button id="button2">Buy Now</button>
                         </div>
                         <div id="darktheme">
@@ -161,7 +161,7 @@ function Pricing() {
                             <FcCheckmark fontSize={25} id="checkmark" />
                             Ultra HD
                         </span>
-                        <div class="setBtn">
+                        <div className="setBtn">
                             <button id="button3">Buy Now</button>
                         </div>
                         <div id="darktheme">

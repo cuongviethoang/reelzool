@@ -1,4 +1,8 @@
+:root {
+    --mt-71: 71px;
+}
 .backgroun-Color-Main {
+    margin-top: var(--mt-71);
     width: 100%;
     height: 91vh;
     background-color: #0c1e25;
@@ -8,6 +12,8 @@
     align-items: center;
 }
 .backgroun-Color-secondary {
+    margin-top: var(--mt-71);
+
     width: 100vw;
     height: 91vh;
     background-color: #fff;

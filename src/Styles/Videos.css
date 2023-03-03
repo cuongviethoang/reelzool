@@ -1,6 +1,10 @@
 body {
     overflow-x: hidden;
 }
+
+#mt-71 {
+    margin-top: 71px;
+}
 .movies-container {
     display: flex;
     flex-wrap: wrap;
@@ -50,6 +54,7 @@ body {
 }
 
 .card {
+    position: relative;
     overflow: hidden;
     transition: 0.8s;
 }
@@ -58,11 +63,12 @@ body {
     object-fit: cover;
     transition: 1s ease-in-out;
     filter: grayscale(0.7);
+    border-radius: 18px;
 }
 
 .card:hover img {
     width: 120%;
-
+    border-radius: 18px;
     filter: grayscale(0);
 }
 
@@ -88,7 +94,7 @@ body {
     /* margin-left: 560px; */
     right: 17%;
     margin-top: 67px;
-    z-index: 999;
+    z-index: 998;
 }
 #Nothing {
     color: green;

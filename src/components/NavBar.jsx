@@ -18,9 +18,15 @@ function NavBar() {
             <Fragment>
                 <nav className={toggle ? "" : "navBarColor"} style={{}}>
                     <div className="nav-options">
-                        <NavLink to="/">
+                        {/* <NavLink to="/">
                             <h1 id={toggle ? "" : "heading"}>ReelZool</h1>
-                        </NavLink>
+                        </NavLink> */}
+                        <a
+                            className={toggle ? "Movies" : "MoviesLight"}
+                            href="/#"
+                        >
+                            <h1 id={toggle ? "" : "heading"}>ReelZool</h1>
+                        </a>
                         <NavLink
                             to=""
                             style={({ isActive }) => {

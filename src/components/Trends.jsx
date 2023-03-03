@@ -5,12 +5,15 @@ import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai";
 import NoImg from "./NoImage.jpg";
 import "../Styles/Videos.css";
 import TrailerTrending from "../Trailers/TrailerTrending";
+import Loading from "./Loading";
+import Footer from "./Footer";
 function Trends() {
     const { toggle, inputValue } = useContext(Container);
     const input = inputValue;
     const Api = "https://api.themoviedb.org/3";
     const TrendsShown = "/trending/all/week";
     const [trailer, setTrailer] = useState(true);
+    const [loading, setLoading] = useState(true);
     const [trendArray, setTrendArray] = useState([]);
     const [trendTitle, setTrendTitle] = useState("");
     const Images = "https://image.tmdb.org/t/p/w500";
@@ -28,6 +31,7 @@ function Trends() {
     useEffect(() => {
         setTimeout(() => {
             Trends();
+            setLoading(false);
         });
     }, [input]);
     const TrendTitle = (trend) => {
@@ -35,7 +39,9 @@ function Trends() {
         setTrailer(!trailer);
     };
     console.log(trendArray);
-    return (
+    return loading ? (
+        <Loading />
+    ) : (
         <Fragment>
             <div className={toggle ? "mainBgColor" : "secondaryBgColor"}>
                 <div className="movies-container">
@@ -91,6 +97,7 @@ function Trends() {
                     />
                 </div>
             </div>
+            <Footer />
         </Fragment>
     );
 }
