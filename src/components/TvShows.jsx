@@ -1,12 +1,11 @@
 //rfec
 
-import { AiFillPlayCircle } from "react-icons/ai"; // Lấy icon play video
-import { AiOutlineClose } from "react-icons/ai";
+import axios from "axios";
 import React, { Fragment, useEffect, useState, useContext } from "react";
+import { AiFillPlayCircle, AiOutlineClose } from "react-icons/ai"; // Lấy icon play video
 import { Container } from "./NavBar";
 import "../Styles/Videos.css";
 import NoImg from "./NoImage.jpg";
-import axios from "axios";
 import TrailerTvShows from "../Trailers/TrailerTvShows";
 import Loading from "./Loading";
 import Footer from "./Footer";
@@ -43,7 +42,7 @@ function TvShows() {
             setLoading(false);
         }, 500);
     }, []);
-    console.log(showData);
+
     const TvShowTitle = (shows) => {
         setTitle(shows.name);
         setTrailer(!trailer);
@@ -75,6 +74,7 @@ function TvShows() {
                                         onClick={() => TvShowTitle(shows)}
                                     />
                                     <img
+                                        className="img"
                                         src={
                                             shows.poster_path
                                                 ? `${Images}${shows.poster_path}`

@@ -43,7 +43,7 @@ function Trends() {
         setTrendTitle(trend.title);
         setTrailer(!trailer);
     };
-    console.log(trendArray);
+
     return loading ? (
         <Loading />
     ) : (
@@ -70,6 +70,7 @@ function Trends() {
                                         onClick={() => TrendTitle(trend)}
                                     />
                                     <img
+                                        className="img"
                                         src={
                                             trend.poster_path
                                                 ? `${Images}${trend.poster_path}`

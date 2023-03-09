@@ -1,5 +1,6 @@
 nav {
     position: fixed;
+
     top: 0;
     width: 100vw;
     height: 71px;
@@ -91,6 +92,12 @@ span #HomeLight:hover,
     border-radius: 50%;
     transition: 0.6s;
 }
+
+::placeholder {
+    opacity: 0.6;
+    font-size: 20px;
+}
+
 .input-group input {
     position: relative;
     width: 323px;

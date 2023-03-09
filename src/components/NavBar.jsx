@@ -1,6 +1,9 @@
 import React, { Fragment, useState } from "react";
 import { HiSearch } from "react-icons/hi";
 import { Routes, Route, NavLink } from "react-router-dom";
+
+import "../Styles/Intro.css";
+
 import Movies from "./Movies";
 import TvShows from "./TvShows";
 import Trending from "./Trends";
@@ -13,20 +16,20 @@ export const Container = React.createContext();
 function NavBar() {
     const [toggle, setToogle] = useState(true);
     const [inputValue, setInputValue] = useState("");
+
     return (
         <Container.Provider value={{ toggle, inputValue }}>
             <Fragment>
-                <nav className={toggle ? "" : "navBarColor"} style={{}}>
+                <nav
+                    id="NavBar-header"
+                    className={toggle ? "" : "navBarColor"}
+                    style={{}}
+                >
                     <div className="nav-options">
-                        {/* <NavLink to="/">
+                        <NavLink to="/">
                             <h1 id={toggle ? "" : "heading"}>ReelZool</h1>
-                        </NavLink> */}
-                        <a
-                            className={toggle ? "Movies" : "MoviesLight"}
-                            href="/#"
-                        >
-                            <h1 id={toggle ? "" : "heading"}>ReelZool</h1>
-                        </a>
+                        </NavLink>
+
                         <NavLink
                             to=""
                             style={({ isActive }) => {
@@ -38,7 +41,7 @@ function NavBar() {
                             </span>
                         </NavLink>
                         <NavLink
-                            to="/TvShows"
+                            to="TvShows"
                             style={({ isActive }) => {
                                 return { color: isActive ? "#fff" : "#ee9b00" };
                             }}
@@ -48,7 +51,7 @@ function NavBar() {
                             </span>
                         </NavLink>
                         <NavLink
-                            to="/Trending"
+                            to="Trending"
                             style={({ isActive }) => {
                                 return { color: isActive ? "#fff" : "#ee9b00" };
                             }}
@@ -58,7 +61,7 @@ function NavBar() {
                             </span>
                         </NavLink>
                         <NavLink
-                            to="/Pricing"
+                            to="Pricing"
                             style={({ isActive }) => {
                                 return { color: isActive ? "#fff" : "#ee9b00" };
                             }}
@@ -71,7 +74,7 @@ function NavBar() {
                     <div className="input-group">
                         <input
                             type="text"
-                            placeholder="whatever movie do you want search"
+                            placeholder="Tìm kiếm"
                             onChange={(e) => setInputValue(e.target.value)}
                         />
                         <HiSearch

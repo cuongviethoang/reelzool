@@ -36,11 +36,13 @@ function Movies() {
             MovieCall();
         }, 100);
     }, [input]);
+
     useEffect(() => {
         setTimeout(() => {
             setLoading(false);
         }, 500);
     }, []);
+
     const MoviesTitle = (movie) => {
         setMovieTitle(movie.title);
         setTrailer(!trailer);
@@ -71,6 +73,7 @@ function Movies() {
                                         onClick={() => MoviesTitle(movie)}
                                     />
                                     <img
+                                        className="img"
                                         src={
                                             movie.poster_path
                                                 ? `${Images}${movie.poster_path}`

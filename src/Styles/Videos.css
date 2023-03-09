@@ -57,24 +57,24 @@ body {
     position: relative;
 }
 
-.card {
+/* .card {
     position: relative;
     overflow: hidden;
     transition: 0.8s;
 }
 
-.card img {
+.card .img {
     object-fit: cover;
     transition: 1s ease-in-out;
     filter: grayscale(0.7);
     border-radius: 18px;
 }
 
-.card:hover img {
+.card:hover .img {
     width: 120%;
     border-radius: 18px;
     filter: grayscale(0);
-}
+} */
 
 #hide {
     display: none;
